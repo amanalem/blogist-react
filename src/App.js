@@ -19,7 +19,7 @@ function App() {
       <h1>App.js</h1>
       <Nav />
       <Routes>
-        <Route path="/admin" element={<AdminPage />} />
+        <Route path="/admin" element={<AdminPage setPosts />} />
       </Routes>
     </div>
   );
