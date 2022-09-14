@@ -13,7 +13,7 @@ function App() {
 
   const [user, setUser] = useState({});
 
-  const [posts, setPosts] = useState({});
+  const [posts, setPosts] = useState([]);
 
   useEffect(() => {
     adminService.get().then(({ data }) => {
@@ -33,7 +33,17 @@ function App() {
       <Nav />
       <Routes>
         <Route path="/blog" element={<PostsPage posts={posts} />} />
-        <Route path="/admin" element={<AdminPage blogist={blogist} />} />
+        <Route
+          path="/admin"
+          element={
+            <AdminPage
+              blogist={blogist}
+              setBlogist={setBlogist}
+              setPosts={setPosts}
+              posts={posts}
+            />
+          }
+        />
         <Route path="/*" element={<Navigate to="/blog" />} />
       </Routes>
     </div>

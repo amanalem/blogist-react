@@ -1,22 +1,26 @@
-import axios from "axios";
 import React from "react";
-import { useState } from "react";
+import { useState, useEffect } from "react";
+import postsService from "../services/postsService";
+import adminService from "../services/adminService";
 
-const NewPostForm = ({ id }) => {
+const NewPostForm = ({ blogist, setBlogist, setPosts, posts }) => {
+  useEffect(() => {
+    adminService.get().then(({ data }) => {
+      console.log(data.id);
+      setFormData({ media: "", title: "", body: "", author: data.id });
+    });
+  }, []);
+
   const initialState = {
     media: "",
     title: "",
     body: "",
-    author: id,
+    author: blogist.id,
   };
 
   const [formData, setFormData] = useState(initialState);
 
   const [message, setMessage] = useState({ message: "" });
-
-  const createPost = (post) => {
-    axios.create("http://localhost:8000/blogist/posts-list/", post);
-  };
 
   const updateMessage = (msg) => {
     setMessage({ message: msg });
@@ -29,8 +33,10 @@ const NewPostForm = ({ id }) => {
   const handleSubmit = (e) => {
     e.preventDefault();
     try {
-      createPost(formData);
-      setFormData(initialState);
+      postsService.create(formData).then(({ data }) => {
+        setFormData(initialState);
+        setPosts([...posts, data]);
+      });
     } catch (err) {
       updateMessage(err.message);
       setFormData(initialState);
