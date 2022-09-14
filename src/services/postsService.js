@@ -12,12 +12,12 @@ const get = (id) => {
 };
 
 const create = (form) => {
-  // return http.post("/posts-list/", form);
-  return axios({
-    method: "POST",
-    url: baseUrl,
-    data: form,
-  });
+  return http.post("/posts-list/", form);
+  // return axios({
+  //   method: "POST",
+  //   url: baseUrl,
+  //   data: form,
+  // });
 };
 
 const update = (id, form) => {
@@ -25,7 +25,7 @@ const update = (id, form) => {
 };
 
 const destroy = (id) => {
-  return http.delete(`/posts-list/${id}/`);
+  return http.delete(`/posts-list/${id}/delete`);
 };
 
 export default {

@@ -12,11 +12,6 @@ const NavDiv = styled.div`
     padding: 0;
     margin: 0;
   }
-
-  li {
-    list-style-type: none;
-    justify-content: center;
-  }
 `;
 
 const Nav = () => {
