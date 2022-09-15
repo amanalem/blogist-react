@@ -23,6 +23,14 @@ const Nav = () => {
         </li>
         &nbsp; &nbsp; &nbsp;
         <li>
+          <Link to="/about">About</Link>
+        </li>
+        &nbsp; &nbsp; &nbsp;
+        <li>
+          <Link to="/contact">Contact</Link>
+        </li>
+        &nbsp; &nbsp; &nbsp;
+        <li>
           <Link to="/admin">Admin</Link>
         </li>
       </ul>

@@ -25,7 +25,7 @@ const update = (id, form) => {
 };
 
 const destroy = (id) => {
-  return http.delete(`/posts-list/${id}/delete`);
+  return http.delete(`/posts-list/${id}/`);
 };
 
 export default {

@@ -7,6 +7,7 @@ import adminService from "./services/adminService";
 import Nav from "./components/Nav";
 import AdminPage from "./pages/AdminPage";
 import PostsPage from "./pages/PostsPage";
+import EditPostPage from "./pages/EditPostPage";
 
 function App() {
   const [blogist, setBlogist] = useState({});
@@ -43,6 +44,10 @@ function App() {
               posts={posts}
             />
           }
+        />
+        <Route
+          path="/edit-post/:id"
+          element={<EditPostPage posts={posts} setPosts={setPosts} />}
         />
         <Route path="/*" element={<Navigate to="/blog" />} />
       </Routes>

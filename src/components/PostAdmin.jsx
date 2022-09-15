@@ -6,11 +6,8 @@ const PostAdmin = ({ title, id, posts, setPosts }) => {
   const handleDelete = (e) => {
     e.preventDefault();
     try {
-      postsService.delete(id).then(() => {
-        postsService.get().then(({ data }) => {
-          setPosts(data);
-        });
-      });
+      postsService.delete(id);
+      setPosts(posts.filter((post) => post.id !== id));
     } catch (err) {
       console.log(err.message);
     }
