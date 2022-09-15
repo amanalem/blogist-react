@@ -29,7 +29,6 @@ const Post = ({ title, media, id, body, alt }) => {
       <img src={media} alt={alt} />
       <h3>{title}</h3>
       <p>{body}</p>
-      {comments.length ? <h3>Comments</h3> : null}
       {comments.length ? (
         <CommentList>
           <ul>

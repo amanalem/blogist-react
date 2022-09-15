@@ -33,19 +33,21 @@ const AdminPage = ({ blogist, setBlogist, setPosts, posts }) => {
       <h3>Posts</h3>
       <PostItem>
         <table>
-          {posts.map((post) => {
-            return (
-              <tr>
-                <PostAdmin
-                  key={post.id}
-                  title={post.title}
-                  id={post.id}
-                  posts={posts}
-                  setPosts={setPosts}
-                />
-              </tr>
-            );
-          })}
+          <tbody>
+            {posts.map((post) => {
+              return (
+                <tr>
+                  <PostAdmin
+                    key={post.id}
+                    title={post.title}
+                    id={post.id}
+                    posts={posts}
+                    setPosts={setPosts}
+                  />
+                </tr>
+              );
+            })}
+          </tbody>
         </table>
       </PostItem>
     </div>

@@ -1,17 +1,15 @@
 import http from "../http-common";
 
-const get = (id, commentId) => {
-  return http.get(`posts-list/${id}/comments/${commentId}/replies/`);
+const get = (commentId) => {
+  return http.get(`/replies-list/${commentId}`);
 };
 
-const create = (id, commentId, form) => {
-  return http.post(`posts-list/${id}/comments/${commentId}/replies/`, form);
+const create = (commentId, form) => {
+  return http.post(`/replies-list/`, form);
 };
 
-const destroy = (id, commentId, replyId) => {
-  return http.delete(
-    `posts-list/${id}/comments/${commentId}/replies/${replyId}/`
-  );
+const destroy = (commentId, replyId) => {
+  return http.delete(`/replies-list/${commentId}/detail/${replyId}/`);
 };
 
 export default {
