@@ -1,15 +1,15 @@
 import http from "../http-common";
 
 const get = (id) => {
-  return http.get(`/comments-list/`);
+  return http.get(`posts-list/${id}/comments/`);
 };
 
-const create = (form) => {
-  return http.post("/comments-list/", form);
+const create = (id, form) => {
+  return http.post(`posts-list/${id}/comments/`, form);
 };
 
-const destroy = (id) => {
-  return http.delete(`/comments-list/${id}/`);
+const destroy = (id, commentId) => {
+  return http.delete(`posts-list/${id}/comments/${commentId}/`);
 };
 
 export default {
