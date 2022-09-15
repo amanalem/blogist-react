@@ -14,6 +14,7 @@ const PostsPage = ({ posts }) => {
               media={post.media}
               id={post.id}
               body={post.body}
+              alt={post.media_alt}
             />
           );
         })}
