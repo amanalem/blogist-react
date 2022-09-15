@@ -17,7 +17,9 @@ const PostAdmin = ({ title, id, posts, setPosts }) => {
     <div>
       <td>{title}</td>
       <td>
-        <button>Edit</button>
+        <Link to={`/edit-post/${id}`}>
+          <button>Edit</button>
+        </Link>
       </td>
       <td>
         <button onClick={handleDelete}>Delete</button>

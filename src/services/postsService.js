@@ -1,7 +1,4 @@
 import http from "../http-common";
-import axios from "axios";
-
-const baseUrl = "http://localhost:8000/blogist/posts-list/";
 
 const getAll = () => {
   return http.get("/posts-list/");
@@ -13,11 +10,6 @@ const get = (id) => {
 
 const create = (form) => {
   return http.post("/posts-list/", form);
-  // return axios({
-  //   method: "POST",
-  //   url: baseUrl,
-  //   data: form,
-  // });
 };
 
 const update = (id, form) => {
