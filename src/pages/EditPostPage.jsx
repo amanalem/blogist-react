@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react";
 import { useParams, useNavigate, Link } from "react-router-dom";
 import postsService from "../services/postsService";
 
-const EditPostPage = ({ posts, setPosts }) => {
+const EditPostPage = ({ setPosts }) => {
   let { id } = useParams();
 
   const navigate = useNavigate();
@@ -34,28 +34,53 @@ const EditPostPage = ({ posts, setPosts }) => {
     <div>
       <h2>Edit Post</h2>
       <form onSubmit={handleEdit}>
-        <input
-          onChange={handleChange}
-          type="text"
-          name="media"
-          value={formData.media}
-        />
+        <label>
+          Media <br />
+          <input
+            onChange={handleChange}
+            type="text"
+            name="media"
+            value={formData.media}
+          />
+        </label>
         <br />
-        <input
-          onChange={handleChange}
-          type="text"
-          name="title"
-          value={formData.title}
-        />
         <br />
-        <input
-          onChange={handleChange}
-          type="text"
-          name="body"
-          value={formData.body}
-        />
+        <label>
+          Media Alt-Text <br />
+          <input
+            onChange={handleChange}
+            type="text"
+            name="media_alt"
+            value={formData.media_alt}
+          />
+        </label>
+        <br />
+        <br />
+        <label>
+          Title <br />
+          <input
+            onChange={handleChange}
+            type="text"
+            name="title"
+            value={formData.title}
+          />
+        </label>
+        <br />
+        <br />
+        <label>
+          Post Body <br />
+          <input
+            onChange={handleChange}
+            type="text"
+            name="body"
+            value={formData.body}
+          />
+        </label>
+        <br />
         <br />
         <button type="submit">Save</button>
+        <br />
+        <br />
       </form>
       <Link to="/admin">
         <button>Cancel</button>

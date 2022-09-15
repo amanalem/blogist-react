@@ -7,12 +7,19 @@ const NewPostForm = ({ blogist, setBlogist, setPosts, posts }) => {
   useEffect(() => {
     adminService.get().then(({ data }) => {
       console.log(data.id);
-      setFormData({ media: "", title: "", body: "", author: data.id });
+      setFormData({
+        media: "",
+        title: "",
+        body: "",
+        media_alt: "",
+        author: data.id,
+      });
     });
   }, []);
 
   const initialState = {
     media: "",
+    media_alt: "",
     title: "",
     body: "",
     author: blogist.id,
@@ -61,6 +68,14 @@ const NewPostForm = ({ blogist, setBlogist, setPosts, posts }) => {
         <br />
         <input
           type="text"
+          placeholder="media alt text"
+          name="media_alt"
+          value={formData.media_alt}
+          onChange={handleChange}
+        />
+        <br />
+        <input
+          type="text"
           placeholder="title"
           name="title"
           value={formData.title}
@@ -69,7 +84,7 @@ const NewPostForm = ({ blogist, setBlogist, setPosts, posts }) => {
         <br />
         <input
           type="text"
-          placeholder="Post Body"
+          placeholder="post body"
           name="body"
           value={formData.body}
           onChange={handleChange}

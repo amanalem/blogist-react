@@ -47,7 +47,7 @@ function App() {
         />
         <Route
           path="/edit-post/:id"
-          element={<EditPostPage posts={posts} setPosts={setPosts} />}
+          element={<EditPostPage setPosts={setPosts} />}
         />
         <Route path="/*" element={<Navigate to="/blog" />} />
       </Routes>
