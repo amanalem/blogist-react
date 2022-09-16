@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react";
 import replyService from "../services/replyService";
 import Reply from "./Reply";
 
-const Comment = ({ body, author, commentId, postId }) => {
+const Comment = ({ body, author, commentId, postId, user }) => {
   useEffect(() => {
     replyService.get(commentId).then(({ data }) => {
       setReplies(data);
@@ -29,6 +29,9 @@ const Comment = ({ body, author, commentId, postId }) => {
           })}
         </ul>
       ) : null}
+      <br />
+      {/* {user == undefined ? <button>Reply</button> : null} */}
+      {user.id ? <button>Reply</button> : null}
       <br />
     </div>
   );

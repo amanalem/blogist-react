@@ -1,7 +1,7 @@
 import React from "react";
 import Post from "../components/Post";
 
-const PostsPage = ({ posts }) => {
+const PostsPage = ({ posts, user }) => {
   return (
     <div>
       <h1>Blog Page</h1>
@@ -15,6 +15,7 @@ const PostsPage = ({ posts }) => {
               id={post.id}
               body={post.body}
               alt={post.media_alt}
+              user={user}
             />
           );
         })}

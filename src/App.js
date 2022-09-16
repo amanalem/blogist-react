@@ -8,6 +8,7 @@ import Nav from "./components/Nav";
 import AdminPage from "./pages/AdminPage";
 import PostsPage from "./pages/PostsPage";
 import EditPostPage from "./pages/EditPostPage";
+import PostDetailPage from "./pages/PostDetailPage";
 
 function App() {
   const [blogist, setBlogist] = useState({});
@@ -30,10 +31,10 @@ function App() {
 
   return (
     <div className="App">
-      <h1>App.js</h1>
+      <h1>Blogist</h1>
       <Nav />
       <Routes>
-        <Route path="/blog" element={<PostsPage posts={posts} />} />
+        <Route path="/blog" element={<PostsPage posts={posts} user={user} />} />
         <Route
           path="/admin"
           element={
@@ -49,6 +50,7 @@ function App() {
           path="/edit-post/:id"
           element={<EditPostPage setPosts={setPosts} />}
         />
+        <Route path="/post/:id" element={<PostDetailPage user={user} />} />
         <Route path="/*" element={<Navigate to="/blog" />} />
       </Routes>
     </div>
