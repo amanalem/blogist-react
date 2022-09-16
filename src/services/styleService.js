@@ -11,3 +11,9 @@ const create = () => {
 const update = () => {
   return http.put("/style/");
 };
+
+export default {
+  get,
+  create,
+  update,
+};
