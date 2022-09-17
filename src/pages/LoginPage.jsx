@@ -15,16 +15,28 @@ const LoginPage = ({ user, setUser }) => {
     setSelector({ toggle: !selector.toggle });
   };
 
-  const updateMessage = () => [];
+  const updateMessage = (msg) => {
+    setMessage({ message: msg });
+  };
 
   //   let toggle = true;
 
   return (
     <div>
       {selector.toggle ? (
-        <Login toggle={toggle} user={user} setUser={setUser} />
+        <Login
+          toggle={toggle}
+          user={user}
+          setUser={setUser}
+          updateMessage={updateMessage}
+        />
       ) : (
-        <Register toggle={toggle} user={user} setUser={setUser} />
+        <Register
+          toggle={toggle}
+          user={user}
+          setUser={setUser}
+          updateMessage={updateMessage}
+        />
       )}
     </div>
   );

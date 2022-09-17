@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 
-const Register = ({ user, setUser, toggle }) => {
+const Register = ({ user, setUser, toggle, updateMessage }) => {
   const [registerForm, setRegisterForm] = useState({
     first_name: "",
     last_name: "",

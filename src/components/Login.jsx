@@ -1,13 +1,10 @@
 import React, { useState } from "react";
+import authService from "../services/authService";
 
-const Login = ({ user, setUser, toggle }) => {
+const Login = ({ user, setUser, toggle, updateMessage }) => {
   const [loginForm, setLoginForm] = useState({
     email: "",
     password: "",
-  });
-
-  const [message, setMessage] = useState({
-    message: "",
   });
 
   const handleChange = (e) => {
@@ -16,6 +13,11 @@ const Login = ({ user, setUser, toggle }) => {
 
   const handleLogin = (e) => {
     e.preventDefault();
+    authService.login(loginForm).then(({ data }) => {
+      updateMessage(data.message);
+      if (data.token) {
+      }
+    });
   };
 
   return (
