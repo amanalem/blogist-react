@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import Login from "../components/Login";
 import Register from "../components/Register";
 
-const LoginPage = ({ user, setUser }) => {
+const LoginPage = ({ user, setUser, handleLoginOrRegister }) => {
   const [selector, setSelector] = useState({
     toggle: true,
   });
@@ -29,6 +29,7 @@ const LoginPage = ({ user, setUser }) => {
           user={user}
           setUser={setUser}
           updateMessage={updateMessage}
+          handleLoginOrRegister={handleLoginOrRegister}
         />
       ) : (
         <Register
@@ -36,6 +37,7 @@ const LoginPage = ({ user, setUser }) => {
           user={user}
           setUser={setUser}
           updateMessage={updateMessage}
+          handleLoginOrRegister={handleLoginOrRegister}
         />
       )}
     </div>

@@ -1,10 +1,20 @@
 import React, { useState } from "react";
 import authService from "../services/authService";
+import { useNavigate } from "react-router-dom";
 
-const Login = ({ user, setUser, toggle, updateMessage }) => {
+const Login = ({
+  user,
+  setUser,
+  toggle,
+  updateMessage,
+  handleLoginOrRegister,
+}) => {
+  const navigate = useNavigate();
+
   const [loginForm, setLoginForm] = useState({
     email: "",
     password: "",
+    password_confirmation: "",
   });
 
   const handleChange = (e) => {
@@ -13,11 +23,18 @@ const Login = ({ user, setUser, toggle, updateMessage }) => {
 
   const handleLogin = (e) => {
     e.preventDefault();
-    authService.login(loginForm).then(({ data }) => {
-      updateMessage(data.message);
-      if (data.token) {
-      }
-    });
+    try {
+      authService.login(loginForm).then(({ user }) => {
+        setUser(user);
+        navigate("/blog");
+      });
+    } catch (err) {
+      updateMessage(err.message);
+    }
+  };
+
+  const isFormInvalid = () => {
+    return !(loginForm.email && loginForm.password);
   };
 
   return (
@@ -47,7 +64,20 @@ const Login = ({ user, setUser, toggle, updateMessage }) => {
 
         <br />
         <br />
-        <button type="submit">Log In</button>
+        <input
+          size={45}
+          type="password"
+          name="password_confirmation"
+          onChange={handleChange}
+          value={loginForm.password_confirmation}
+          placeholder="password_confirmation"
+        />
+
+        <br />
+        <br />
+        <button type="submit" disabled={isFormInvalid()}>
+          Log In
+        </button>
       </form>
       <br />
       <br /> <br />

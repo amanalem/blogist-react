@@ -14,7 +14,7 @@ const NavDiv = styled.div`
   }
 `;
 
-const Nav = () => {
+const Nav = ({ handleLogout }) => {
   return (
     <NavDiv>
       <ul>
@@ -36,6 +36,12 @@ const Nav = () => {
         &nbsp; &nbsp; &nbsp;
         <li>
           <Link to="/login">Login</Link>
+        </li>
+        &nbsp; &nbsp; &nbsp;
+        <li>
+          <Link onClick={handleLogout} to="/login">
+            Logout
+          </Link>
         </li>
       </ul>
     </NavDiv>

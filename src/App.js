@@ -1,18 +1,28 @@
 import "./App.css";
 import { useState, useEffect } from "react";
-import { Route, Routes, Navigate, UseNavigate } from "react-router-dom";
+import {
+  Route,
+  Routes,
+  Navigate,
+  UseNavigate,
+  useNavigate,
+} from "react-router-dom";
 import axios from "axios";
 import postsService from "./services/postsService";
 import adminService from "./services/adminService";
+import styleService from "./services/styleService";
+import authService from "./services/authService";
 import Nav from "./components/Nav";
 import AdminPage from "./pages/AdminPage";
 import PostsPage from "./pages/PostsPage";
 import EditPostPage from "./pages/EditPostPage";
 import PostDetailPage from "./pages/PostDetailPage";
-import styleService from "./services/styleService";
+
 import LoginPage from "./pages/LoginPage";
 
 function App() {
+  const navigate = useNavigate();
+
   const [blogist, setBlogist] = useState({});
 
   const [user, setUser] = useState({});
@@ -21,11 +31,31 @@ function App() {
 
   const [style, setStyle] = useState({});
 
+  const handleLogout = () => {
+    // authService.logout();
+    setUser(null);
+    navigate("/login");
+  };
+
+  const handleLoginOrRegister = () => {
+    setUser(authService.getUser());
+  };
+
+  // const handleLogin = () => {
+  //   setUser(authService.login);
+  // };
+
+  // const handleRegister = () => {};
+
   useEffect(() => {
     adminService.get().then(({ data }) => {
       setBlogist(data);
     });
   }, []);
+
+  // useEffect(() => {
+  //   setUser(authService.getUser());
+  // }, []);
 
   useEffect(() => {
     postsService.getAll().then(({ data }) => {
@@ -42,12 +72,18 @@ function App() {
   return (
     <div className="App">
       <h1>Blogist</h1>
-      <Nav />
+      <Nav user={user} handleLogout={handleLogout} />
       <Routes>
         <Route path="/blog" element={<PostsPage posts={posts} user={user} />} />
         <Route
           path="/login"
-          element={<LoginPage user={user} setUser={setUser} />}
+          element={
+            <LoginPage
+              user={user}
+              setUser={setUser}
+              handleLoginOrRegister={handleLoginOrRegister}
+            />
+          }
         />
         <Route
           path="/admin"

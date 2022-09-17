@@ -1,19 +1,45 @@
 import React, { useState } from "react";
+import authService from "../services/authService";
+import { useNavigate } from "react-router-dom";
 
-const Register = ({ user, setUser, toggle, updateMessage }) => {
+const Register = ({
+  user,
+  setUser,
+  toggle,
+  updateMessage,
+  handleLoginOrRegister,
+}) => {
+  const navigate = useNavigate();
+
   const [registerForm, setRegisterForm] = useState({
-    first_name: "",
-    last_name: "",
+    username: "",
     email: "",
     password: "",
     password_confirmation: "",
-    is_superuser: true,
+    is_superuser: false,
   });
-
-  const handleRegister = (e) => {};
 
   const handleChange = (e) => {
     setRegisterForm({ ...registerForm, [e.target.name]: e.target.value });
+  };
+
+  const handleRegister = async (e) => {
+    e.preventDefault();
+    try {
+      await authService.register(registerForm);
+      toggle();
+    } catch (err) {
+      updateMessage(err.message);
+    }
+  };
+
+  const isFormInvalid = () => {
+    return !(
+      registerForm.email &&
+      registerForm.username &&
+      registerForm.password &&
+      registerForm.password_confirmation
+    );
   };
 
   return (
@@ -32,21 +58,13 @@ const Register = ({ user, setUser, toggle, updateMessage }) => {
         <br />
         <input
           type="text"
-          name="first_name"
-          size={20}
-          value={registerForm.first_name}
+          name="username"
+          size={45}
+          value={registerForm.username}
           onChange={handleChange}
-          placeholder="first name"
+          placeholder="username"
         />
-        &nbsp; &nbsp; &nbsp;
-        <input
-          type="text"
-          name="last_name"
-          size={20}
-          value={registerForm.last_name}
-          onChange={handleChange}
-          placeholder="last name"
-        />
+
         <br />
         <br />
         <input
@@ -69,7 +87,9 @@ const Register = ({ user, setUser, toggle, updateMessage }) => {
         />
         <br />
         <br />
-        <button type="submit">Register</button>
+        <button type="submit" disabled={isFormInvalid()}>
+          Register
+        </button>
       </form>
       <br /> <br />
       <br />
