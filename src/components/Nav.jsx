@@ -33,6 +33,10 @@ const Nav = () => {
         <li>
           <Link to="/admin">Admin</Link>
         </li>
+        &nbsp; &nbsp; &nbsp;
+        <li>
+          <Link to="/login">Login</Link>
+        </li>
       </ul>
     </NavDiv>
   );

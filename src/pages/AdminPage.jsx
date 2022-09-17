@@ -19,7 +19,14 @@ const PostItem = styled.div`
   }
 `;
 
-const AdminPage = ({ blogist, setBlogist, setPosts, posts }) => {
+const AdminPage = ({
+  blogist,
+  setBlogist,
+  setPosts,
+  posts,
+  style,
+  setStyle,
+}) => {
   return (
     <div>
       <h2>AdminPage</h2>

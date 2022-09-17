@@ -9,6 +9,8 @@ import AdminPage from "./pages/AdminPage";
 import PostsPage from "./pages/PostsPage";
 import EditPostPage from "./pages/EditPostPage";
 import PostDetailPage from "./pages/PostDetailPage";
+import styleService from "./services/styleService";
+import LoginPage from "./pages/LoginPage";
 
 function App() {
   const [blogist, setBlogist] = useState({});
@@ -16,6 +18,8 @@ function App() {
   const [user, setUser] = useState({});
 
   const [posts, setPosts] = useState([]);
+
+  const [style, setStyle] = useState({});
 
   useEffect(() => {
     adminService.get().then(({ data }) => {
@@ -29,12 +33,22 @@ function App() {
     });
   }, []);
 
+  useEffect(() => {
+    styleService.get().then(({ data }) => {
+      setStyle(data);
+    });
+  }, []);
+
   return (
     <div className="App">
       <h1>Blogist</h1>
       <Nav />
       <Routes>
         <Route path="/blog" element={<PostsPage posts={posts} user={user} />} />
+        <Route
+          path="/login"
+          element={<LoginPage user={user} setUser={setUser} />}
+        />
         <Route
           path="/admin"
           element={
@@ -43,6 +57,8 @@ function App() {
               setBlogist={setBlogist}
               setPosts={setPosts}
               posts={posts}
+              style={style}
+              setStyle={setStyle}
             />
           }
         />
