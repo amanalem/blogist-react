@@ -4,21 +4,22 @@ import Comment from "./Comment";
 import styled from "styled-components";
 import { Link } from "react-router-dom";
 
-const CommentList = styled.div`
-  ul {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
+const PostImg = styled.div`
+  img {
+    max-width: 70%;
+  }
+
+  p {
+    max-width: 70%;
     justify-content: center;
-    list-style-type: none;
-    padding: 0;
-    margin: 0;
+    text-align: center;
+    margin: 0 auto;
   }
 `;
 
 const Post = ({ title, media, id, body, alt, user }) => {
   return (
-    <div>
+    <PostImg>
       <a
         href={`/post/${id}`}
         style={{ textDecoration: "none", color: "black" }}
@@ -29,7 +30,7 @@ const Post = ({ title, media, id, body, alt, user }) => {
       </a>
 
       <hr />
-    </div>
+    </PostImg>
   );
 };
 

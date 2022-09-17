@@ -17,6 +17,19 @@ const CommentList = styled.div`
   }
 `;
 
+const PostDetail = styled.div`
+  img {
+    max-width: 70%;
+  }
+
+  p {
+    max-width: 70%;
+    justify-content: center;
+    text-align: center;
+    margin: 0 auto;
+  }
+`;
+
 const PostDetailPage = ({ user }) => {
   const { id } = useParams();
 
@@ -36,7 +49,8 @@ const PostDetailPage = ({ user }) => {
   }, []);
 
   return (
-    <div>
+    <PostDetail>
+      <br />
       <img src={post.media} alt={post.alt} />
       <h3>{post.title}</h3>
       <p>{post.body}</p>
@@ -64,7 +78,7 @@ const PostDetailPage = ({ user }) => {
       ) : null}
 
       <hr />
-    </div>
+    </PostDetail>
   );
 };
 

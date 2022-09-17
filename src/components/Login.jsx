@@ -64,17 +64,6 @@ const Login = ({
 
         <br />
         <br />
-        <input
-          size={45}
-          type="password"
-          name="password_confirmation"
-          onChange={handleChange}
-          value={loginForm.password_confirmation}
-          placeholder="password_confirmation"
-        />
-
-        <br />
-        <br />
         <button type="submit" disabled={isFormInvalid()}>
           Log In
         </button>
