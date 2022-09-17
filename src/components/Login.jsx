@@ -14,7 +14,9 @@ const Login = ({ user, setUser, toggle }) => {
     setLoginForm({ ...loginForm, [e.target.name]: e.target.value });
   };
 
-  const handleLogin = () => {};
+  const handleLogin = (e) => {
+    e.preventDefault();
+  };
 
   return (
     <div>

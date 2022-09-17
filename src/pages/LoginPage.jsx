@@ -7,15 +7,21 @@ const LoginPage = ({ user, setUser }) => {
     toggle: true,
   });
 
+  const [message, setMessage] = useState({
+    message: "",
+  });
+
   const toggle = () => {
-    setSelector({ ...selector, toggle: !selector.toggle });
+    setSelector({ toggle: !selector.toggle });
   };
+
+  const updateMessage = () => [];
 
   //   let toggle = true;
 
   return (
     <div>
-      {selector.toggle == true ? (
+      {selector.toggle ? (
         <Login toggle={toggle} user={user} setUser={setUser} />
       ) : (
         <Register toggle={toggle} user={user} setUser={setUser} />
