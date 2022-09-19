@@ -4,8 +4,8 @@ import Post from "../components/Post";
 const PostsPage = ({ posts, user }) => {
   return (
     <div>
-      <h1>Blog Page</h1>
       <div>
+        <br />
         {posts.map((post) => {
           return (
             <Post

@@ -28,8 +28,9 @@ const Post = ({ title, media, id, body, alt, user }) => {
         <h3>{title}</h3>
         <p>{body}</p>
       </a>
-
+      <br />
       <hr />
+      <br />
     </PostImg>
   );
 };
