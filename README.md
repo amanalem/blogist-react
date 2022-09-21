@@ -56,12 +56,13 @@ As a user I can:
 
 ## List of Backend URLs
 
-Route | View | Description
-`posts-list/` | `PostsView` | Handles GET request for collection of posts and POST request to add new post
-`posts-list/<int:pk>/` | `PostDetailView` | Handles GET, PUT, & DELETE request for single post
-`get-admin/` | `BlogistView` | Handles Get request for admin user info
-`posts-list/<int:pk>/comments/` | `CommentsView` | Handles Get request for collection of comments
-`replies-list/<int:pk>/` | `RepliesView` | Handles Get request for collection of replies
+| Route                           | View             | Description                                                                  |
+| ------------------------------- | ---------------- | ---------------------------------------------------------------------------- |
+| `posts-list/`                   | `PostsView`      | Handles GET request for collection of posts and POST request to add new post |
+| `posts-list/<int:pk>/`          | `PostDetailView` | Handles GET, PUT, & DELETE request for single post                           |
+| `get-admin/`                    | `BlogistView`    | Handles Get request for admin user info                                      |
+| `posts-list/<int:pk>/comments/` | `CommentsView`   | Handles Get request for collection of comments                               |
+| `replies-list/<int:pk>/`        | `RepliesView`    | Handles Get request for collection of replies                                |
 
 ## Screenshots
 
