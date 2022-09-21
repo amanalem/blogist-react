@@ -1,70 +1,59 @@
-# Getting Started with Create React App
+# Blogist
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+Blogist is a blogging template for artists of all sorts to display their work. An user will be able to log in, create posts, comment amnd reply to posts, and send contact messages to the blog creator.
 
-## Available Scripts
+## Technologies
 
-In the project directory, you can run:
+- Django Rest Framework for backend API
+- React frontend
+- Javascript
+- Python
+- JWT Authentication
+- Heroku Deployement
 
-### `npm start`
+## User Stories
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+As the admin user I can:
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+- Create an admin account.
+- Access the Admin page.
+- Check messages
+- Create Posts
+- Edit Posts
+- Delete Posts
 
-### `npm test`
+As a user I can:
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+- Create a user account
+- Read posts
+- Comment on posts
+- Reply to comments
+- Send a message to the site creator
 
-### `npm run build`
+## List of Backend URLs
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+Route | View | Description
+`posts-list/` | `PostsView` | Handles GET request for collection of posts and POST request to add new post
+`posts-list/<int:pk>/` | `PostDetailView` | Handles GET, PUT, & DELETE request for single post
+`get-admin/` | `BlogistView` | Handles Get request for admin user info
+`posts-list/<int:pk>/comments/` | `CommentsView` | Handles Get request for collection of comments
+`replies-list/<int:pk>/` | `RepliesView` | Handles Get request for collection of replies
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+## Screenshots
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+<img src="./public/screenshots/blog1.png" width="80%">
+<img src="./public/screenshots/blog2.png" width="80%">
+<img src="./public/screenshots/postDetail.png" width="80%">
+<img src="./public/screenshots/adminPage.png" width="80%">
 
-### `npm run eject`
+## Future Goals
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+- Get the user auth working
+- Give basic users the ability to send messages the admin user
+- Give admin user the ability to add custom styling to site
+- Give signed up user the ability to add comments/replies from the frontend
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+## Challenges / Hurdles
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
-
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+- I'm still getting the hang of Django
+- I haven't yet figured out how to get the user auth working
