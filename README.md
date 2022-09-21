@@ -2,6 +2,29 @@
 
 Blogist is a blogging template for artists of all sorts to display their work. An user will be able to log in, create posts, comment amnd reply to posts, and send contact messages to the blog creator.
 
+## Heroku Deployments
+
+Frontend: [https://blogist-react.herokuapp.com/] (https://blogist-react.herokuapp.com/)
+
+Backend: [https://blogist-backend.herokuapp.com/] (https://blogist-backend.herokuapp.com/)
+
+### Local
+
+You can run the app locally following the steps below.
+
+- Frontend
+  - Clone this repo: [https://github.com/amanalem/blogist-react](https://github.com/amanalem/blogist-react)
+  - `cd blogist-react`
+  - `npm i`
+  - In the http-common.js file, make sure the base url is set to the following: `http://localhost:8000/blogist/`
+  - `npm start`
+- Backend
+  - Clone this repo: [https://github.com/amanalem/blogist-django](https://github.com/amanalem/blogist-django)
+  - `cd blogist-django`
+  - `pipenv shell`
+  - `python manage.py runserver`
+  - In the settings.py file, make sure `http://localhost:3000` is listed for `CORS_ALLOWED_ORIGINS`
+
 ## Technologies
 
 - Django Rest Framework for backend API
