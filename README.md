@@ -31,6 +31,7 @@ You can run the app locally following the steps below.
 - React frontend
 - Javascript
 - Python
+- PostgreSQL
 - JWT Authentication
 - Heroku Deployement
 
